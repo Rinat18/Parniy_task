@@ -1,0 +1,16 @@
+.cardProduct {
+  height: auto;
+  width: 350px;
+  box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.1);
+  border-radius: 7px;
+  padding: 10px;
+}
+.cardProduct img {
+  height: 370px;
+  width: 350px;
+}
+.productList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}

@@ -20,7 +20,7 @@ const Navbar = () => {
           <NavLink>
             <div className="navbar_Navlinks">
               <LocationOnIcon style={{ color: "white" }} />
-              <div>Адресса</div>
+              <div>Адреса</div>
             </div>
           </NavLink>
           <NavLink>

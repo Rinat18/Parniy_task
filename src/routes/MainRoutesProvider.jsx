@@ -5,6 +5,7 @@ import AddPage from '../pages/AddPage'
 import Payment from '../pages/Payment'
 import { Route, Routes } from 'react-router-dom'
 import Favorites from '../pages/Favorites'
+import EditModal from '../components/modal/EditModal'
 
 const MainRoutesProvider = () => {
   const PUBLIC_ROUTES = [
@@ -13,6 +14,7 @@ const MainRoutesProvider = () => {
     {id:3, link:"/add", element:<AddPage />} ,
     {id:4, link:"/payment", element:<Payment />} ,
     {id:5, link:"/favorites", element:<Favorites />} ,
+    {id:6, link:"/edit/:id", element:<EditModal />} ,
   ]
   return (
     <>
