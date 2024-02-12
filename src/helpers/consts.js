@@ -1,0 +1,8 @@
+export const API_CARDS = "http://localhost:8008/cards";
+export const ACTIONS = {
+    GET_PRODUCTS: "GET_PRODUCTS",
+    GET_ONE_PRODUCT: "GET_ONE_PRODUCT",
+    CHECK_USER: "CHECK_USER",
+    GET_CART: "GET_CART",
+    GET_CATEGORIES:"GET_CATEGORIES",
+}
