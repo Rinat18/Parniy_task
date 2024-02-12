@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { ACTIONS } from "../helpers/consts";
+import { ACTIONS, API_CARDS } from "../helpers/consts";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export const productContext = createContext();
 export const useProduct = () => useContext(productContext);
 
@@ -20,13 +22,21 @@ function reducer(state = INIT_STATE, action) {
       return state;
   }
 }
-const ProductContextProvider = ({children}) => {
-  const [state, dispatch] = useReducer(reducer, INIT_STATE)
+const ProductContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const navigate = useNavigate();
+
+  const addProduct = async (obj) => {
+    await axios.post(API_CARDS, obj);
+    navigate("/");
+  };
 
   const values = {
-
-  }
-  return <productContext.Provider value={values}>{children}</productContext.Provider>;
+    addProduct,
+  };
+  return (
+    <productContext.Provider value={values}>{children}</productContext.Provider>
+  );
 };
 
 export default ProductContextProvider;
