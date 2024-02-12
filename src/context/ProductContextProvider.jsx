@@ -25,14 +25,46 @@ function reducer(state = INIT_STATE, action) {
 const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const navigate = useNavigate();
-
+  // !CREATE
   const addProduct = async (obj) => {
     await axios.post(API_CARDS, obj);
     navigate("/");
   };
-
+  // !GET
+  const getProduct = async () => {
+    const { data } = await axios(API_CARDS);
+    dispatch({
+      type: ACTIONS.GET_PRODUCTS,
+      payload: data,
+    });
+  };
+  // !DELETE
+  const deleteProduct = async (id) => {
+    await axios.delete(`${API_CARDS}/${id}`);
+    getProduct();
+  };
+  // !GET_ONE_PRODUCT
+  const getOneProduct = async (id) => {
+    const { data } = await axios(`${API_CARDS}/${id}`);
+    dispatch({
+      type: ACTIONS.GET_ONE_PRODUCT,
+      payload: data,
+    });
+  };
+  // !EDIT
+  const editProduct = async (id, editedProduct) => {
+    await axios.patch(`${API_CARDS}/${id}`, editedProduct);
+    navigate("/");
+  };
+  
   const values = {
     addProduct,
+    getProduct,
+    products: state.products,
+    deleteProduct,
+    getOneProduct,
+    editProduct,
+    oneProduct: state.oneProduct,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
