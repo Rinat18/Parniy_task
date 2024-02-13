@@ -32,7 +32,7 @@ const ProductContextProvider = ({ children }) => {
   };
   // !GET
   const getProduct = async () => {
-    const { data } = await axios(API_CARDS);
+    const { data } = await axios(`${API_CARDS}${window.location.search}`);
     dispatch({
       type: ACTIONS.GET_PRODUCTS,
       payload: data,
@@ -56,7 +56,17 @@ const ProductContextProvider = ({ children }) => {
     await axios.patch(`${API_CARDS}/${id}`, editedProduct);
     navigate("/");
   };
-
+  // ! SEARCH 
+  const fetchByParams = (query, value) => {
+    const search = new URLSearchParams(window.location.search);
+    if(value === ""){
+      search.delete(query)
+    }else{
+      search.set(query, value)
+    }
+    const url = `${window.location.pathname}?${search.toString()}`
+    navigate(url)
+  }
   const values = {
     addProduct,
     getProduct,
@@ -65,6 +75,7 @@ const ProductContextProvider = ({ children }) => {
     getOneProduct,
     editProduct,
     oneProduct: state.oneProduct,
+    fetchByParams,
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>

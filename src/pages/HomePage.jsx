@@ -1,14 +1,14 @@
 import React from "react";
-import SideBar from "../components/Home/SideBar";
 import CardsList from "../components/product/CardsList";
 
 const HomePage = () => {
-  return <div style={{display:"flex" }}>
-      <div style={{width: "300px", flex: "none"}}>
-        <SideBar />
+  return (
+    <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <div className="container">
+        <CardsList />
       </div>
-      <CardsList />
-  </div>;
+    </div>
+  );
 };
 
 export default HomePage;

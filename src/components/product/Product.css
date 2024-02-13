@@ -29,6 +29,14 @@
 .card_price-text{
   color: rgb(167, 58, 253);
   font-size: 14px;
-  font-weight: 600;
-  
+  font-weight: 600; 
+}
+
+.cardsList{
+  width: 100%;
+}
+.pagination_list{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
