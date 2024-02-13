@@ -56,7 +56,7 @@ const ProductContextProvider = ({ children }) => {
     await axios.patch(`${API_CARDS}/${id}`, editedProduct);
     navigate("/");
   };
-  
+
   const values = {
     addProduct,
     getProduct,
