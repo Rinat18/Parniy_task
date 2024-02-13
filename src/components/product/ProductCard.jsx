@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Product.css";
-import { Button } from "@mui/material";
 import { useProduct } from "../../context/ProductContextProvider";
 import { UseCart } from "../../context/CartContextProvider";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -10,7 +9,9 @@ import EditModal from "../modal/EditModal";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useFavorites } from "../../context/FavoritesContext";
 const ProductCard = ({ elem }) => {
+  const { addToFavorites } = useFavorites();
   const { deleteProduct } = useProduct();
   const { addToCart } = UseCart();
   const [liked, setLiked] = useState(false);
@@ -30,6 +31,7 @@ const ProductCard = ({ elem }) => {
 
   const handleLikeClick = () => {
     setLiked(!liked);
+    addToFavorites(elem);
   };
 
   return (

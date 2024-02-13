@@ -5,13 +5,16 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import ProductContextProvider from "./context/ProductContextProvider";
 import CartContextProvider from "./context/CartContextProvider";
+import FavoritesContext from "./context/FavoritesContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <ProductContextProvider>
       <CartContextProvider>
-        <App />
+        <FavoritesContext>
+          <App />
+        </FavoritesContext>
       </CartContextProvider>
     </ProductContextProvider>
   </BrowserRouter>

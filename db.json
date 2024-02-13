@@ -14,18 +14,7 @@
     {
       "title": "Nike",
       "description": "Nike",
-      "category": "Спортивка",
-      "price": 100,
-      "image": "https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_500,c_limit/g1ljiszo4qhthfpluzbt/nike-joyride.jpg",
-      "likes": [],
-      "comments": [],
-      "rank": 0,
-      "id": 8
-    },
-    {
-      "title": "Nike",
-      "description": "Nike",
-      "category": "Спортивка",
+      "category": "Обувь",
       "price": 100,
       "image": "https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_500,c_limit/g1ljiszo4qhthfpluzbt/nike-joyride.jpg",
       "likes": [],

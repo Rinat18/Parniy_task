@@ -10,3 +10,4 @@ export const calcSubPrice = (elem) => {
   console.log(elem);
   return elem.item.price * elem.count;
 };
+

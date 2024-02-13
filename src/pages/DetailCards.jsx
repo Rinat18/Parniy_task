@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useProduct } from "../context/ProductContextProvider";
 
-const DetailCards = ({ elem }) => {
+const DetailCards = () => {
   const { id } = useParams();
   const { getOneProduct, oneProduct } = useProduct();
   useEffect(() => {
     getOneProduct(id);
   }, []);
-  console.log(oneProduct);
 
   return (
     <div className="detail">
