@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useProduct } from "../../context/ProductContextProvider";
 const Navbar = () => {
+  const { fetchByParams } = useProduct();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [value, setValue] = useState('')
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
+  function search_Btn(){
+    fetchByParams("title",value)
+    // setSearch(value)
+  }
+
   return (
     <div className="header">
       <div className="container">
@@ -15,7 +30,15 @@ const Navbar = () => {
             alt="wildberries"
           />
         </NavLink>
-        <input placeholder="Найти на Wildberries" type="text" />
+        <div className="input">
+          <input
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Найти на Wildberries"
+            type="text"
+          />
+          <button onClick={() => search_Btn()}>Поиск</button>
+        </div>
+
         <div className="navbar_links">
           <NavLink>
             <div className="navbar_Navlinks">

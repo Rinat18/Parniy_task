@@ -1,9 +1,10 @@
 import { Box, Button, Modal, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useProduct } from "../../context/ProductContextProvider";
+import { useNavigate } from "react-router-dom";
 
-const EditModal = ({ open, closeModal }) => {
-  const { getOneProduct, editProduct, oneProduct } = useProduct();
+const EditModal = ({ open, closeModal, elem }) => {
+  const { editProduct, oneProduct } = useProduct();
   const [product, setProduct] = useState({
     title: "",
     description: "",
@@ -11,6 +12,31 @@ const EditModal = ({ open, closeModal }) => {
     price: 0,
     image: "",
   });
+
+  function addObj(e) {
+    if (e.target.name === "price") {
+      const obj = {
+        ...product,
+        [e.target.name]: Number(e.target.value),
+      };
+      setProduct(obj);
+    } else {
+      const obj = {
+        ...product,
+        [e.target.name]: e.target.value,
+      };
+      setProduct(obj);
+    }
+  }
+  useEffect(() => {
+    setProduct(elem);
+  }, []);
+
+  const changeObj = (elem) => {
+    editProduct(elem.id, product);
+    closeModal();
+  };
+  console.log(product);
   return (
     <>
       <Modal
@@ -36,16 +62,34 @@ const EditModal = ({ open, closeModal }) => {
             height: "400px",
           }}
         >
-          <TextField fullWidth name="image" label="Image" variant="outlined" />
-          <TextField fullWidth name="title" label="Title" variant="outlined" />
           <TextField
             fullWidth
+            onChange={addObj}
+            value={product.image}
+            name="image"
+            label="Image"
+            variant="outlined"
+          />
+          <TextField
+            fullWidth
+            onChange={addObj}
+            value={product.title}
+            name="title"
+            label="Title"
+            variant="outlined"
+          />
+          <TextField
+            fullWidth
+            onChange={addObj}
+            value={product.description}
             name="description"
             label="Description"
             variant="outlined"
           />
           <TextField
             fullWidth
+            onChange={addObj}
+            value={product.price}
             name="price"
             label="Price"
             variant="outlined"
@@ -53,11 +97,18 @@ const EditModal = ({ open, closeModal }) => {
           />
           <TextField
             fullWidth
+            onChange={addObj}
+            value={product.category}
             name="category"
             label="Category"
             variant="outlined"
           />
-          <Button sx={{ border: "1px solid blue" }}>SAVE</Button>
+          <Button
+            onClick={() => changeObj(elem)}
+            sx={{ border: "1px solid blue" }}
+          >
+            SAVE
+          </Button>
         </Box>
       </Modal>
     </>
