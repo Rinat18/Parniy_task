@@ -52,7 +52,6 @@ const Cart = () => {
               ))}
             </>
           )}
-          {/* //jnkjn */}
         </div>
         <div className="totalPrice_block">
           <div className="totalPrice_block_title">Выбрать адрес доставки</div>

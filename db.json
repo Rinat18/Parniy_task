@@ -4,7 +4,7 @@
       "title": "Nike",
       "description": "Nike ",
       "category": "Спортивка",
-      "price": 100,
+      "price": 1000,
       "image": "https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_500,c_limit/g1ljiszo4qhthfpluzbt/nike-joyride.jpg",
       "likes": [],
       "comments": [],
@@ -13,7 +13,7 @@
     },
     {
       "title": "Nike",
-      "description": "Nike ",
+      "description": "Nike",
       "category": "Спортивка",
       "price": 100,
       "image": "https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_500,c_limit/g1ljiszo4qhthfpluzbt/nike-joyride.jpg",
@@ -24,7 +24,7 @@
     },
     {
       "title": "Nike",
-      "description": "Nike ",
+      "description": "Nike",
       "category": "Спортивка",
       "price": 100,
       "image": "https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_500,c_limit/g1ljiszo4qhthfpluzbt/nike-joyride.jpg",
