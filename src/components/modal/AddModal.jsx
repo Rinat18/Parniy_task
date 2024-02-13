@@ -1,11 +1,9 @@
 import { Box, Button, Modal, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useProduct } from "../../context/ProductContextProvider";
-import { useNavigate } from "react-router-dom";
 
 const AddModal = ({ open, closeModal }) => {
   const { addProduct } = useProduct();
-  const navigate = useNavigate()
   const [product, setProduct] = useState({
     title: "",
     description: "",
@@ -16,15 +14,13 @@ const AddModal = ({ open, closeModal }) => {
     comments: [],
     rank: 0,
   });
-  function addObj (e) {
+  function addObj(e) {
     if (e.target.name === "price") {
       const obj = {
         ...product,
         [e.target.name]: Number(e.target.value),
       };
       setProduct(obj);
-      console.log(product);
-
     } else {
       const obj = {
         ...product,
@@ -32,10 +28,10 @@ const AddModal = ({ open, closeModal }) => {
       };
       setProduct(obj);
     }
-  };
+  }
   const handleInput = () => {
     addProduct(product);
-    closeModal()
+    closeModal();
   };
   return (
     <>

@@ -23,7 +23,7 @@ const CardsList = () => {
       CardsList
       <Button onClick={openModal}>Add Card</Button>
       <AddModal open={open} closeModal={closeModal} />
-      <EditModal open={open} closeModal={closeModal} />
+      {/* <EditModal open={open} closeModal={closeModal} /> */}
       <div className="productList">
         {products.map((elem) => (
           <ProductCard key={elem.id} elem={elem} openModal={openModal}/>
